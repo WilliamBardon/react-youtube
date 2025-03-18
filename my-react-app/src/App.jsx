@@ -1,20 +1,21 @@
 import './App.css'
-import { Counter } from './components/Counter'
-import { WelcomeMessage } from './components/WelcomeMessage'
-import { RandomUser } from './components/RandomUser'
-import { TodoList } from './components/ToDoList'
+import Card from './components/Card'
+import { useState, useEffect } from 'react'
+import { PokemonProvider } from './context/PokemonContext'
+import Navbar from './components/Navbar'
 
 function App() {
+  
   return (
-    <>
-     <WelcomeMessage message={'hello world'} title/>
-     <WelcomeMessage message={'ciao ragazzi, mi raccomando un like al video'}/>  
-     <WelcomeMessage/>   
-     <Counter start={1} />
-     <Counter start={100} />
-     <RandomUser/>
-     <TodoList/>
-    </>
+    <PokemonProvider>
+      <main className='container mx-auto h-screen p-4 text-white'>
+        <Navbar />
+        <h1 className='font-bold text-yellow-500 text-4xl text-center my-12'>Il MIO STARTER POKEMON</h1>
+        <div className='flex justify-center items-center h-1/2 gap-4 flex-wrap'>
+          <Card />
+        </div>
+      </main>
+    </PokemonProvider>
   )
 }
 
